@@ -1,0 +1,25 @@
+Tuần 3
+14/03
+swith case
+break: thoát khỏi swith case
+Nếu không có break thì rớt xuống case tiếp theo
+default: nếu không thỏa mãn case nào thì thực hiên
+
+switch (months) {
+    case 1:
+    case 3:
+    case 10:
+    case 12:
+        console.log("Tháng có 31 ngày");
+        break;
+    case 7:
+        console.log("Tháng có 31 ngày");
+        break;
+default:
+
+DK mà đúng thì khối lệnh trong if được thực thi
+if(DK){
+	Khối lệnh
+}
+
+

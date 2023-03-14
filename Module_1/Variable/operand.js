@@ -2,7 +2,7 @@
 var a = 5;
 var b = "5";
 
-console.log(a==b);
+console.log(a==b);      
 // console.log(a!=b);
 
 // Vừa so sánh giá trị vừa so sánh kiểu dữ liệu
@@ -35,9 +35,9 @@ console.log(a);
 
 /---------------------------
 let a = 5;
-a++;        // a = a + 1;
+a++;       // a = a+1;
 console.log(a);
-++a;        // a = a +1
+++a;        
 console.log(a);
 
 /---------------------------
@@ -60,18 +60,13 @@ console.log(a);     //5
 console.log(b);     // 35
 /--------------------------
 console.log(1 + 2 + "3" + 4 + 5);
-3 + "3" + 4 + 5
-// "33" + 4 +5
-// "334" + 5
-// "33345"
-console.log(1 + 2 + "3" + 4 + 5);
-giải thích từng chạy
+
 /--------------------------
-var a = 5;  // number
-var b;      // underfined
+var a = 5;  
+var b;      
 
 
-console.log(a + b);     // NaN
+console.log(a + b);    
  */
 // 1.Số học: +-*/, % ,()        % phép toán chia lấy dư
 // 2. So sánh: == != >= <=, ===
