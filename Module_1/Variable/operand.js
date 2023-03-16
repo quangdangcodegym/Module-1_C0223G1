@@ -35,15 +35,16 @@ console.log(a);
 
 /---------------------------
 let a = 5;
-a++;       // a = a+1;
+a++;       // a = a+1;  // hậu tố
 console.log(a);
-++a;        
+++a;        //a = a+1;   // tiền tố
 console.log(a);
 
 /---------------------------
 let a = 5;
-let b = ++a == 6;
-console.log(b);     //true
+let b = a++ == 6;
+console.log(b);     //false
+console.log(a);     // a=6
 
 
 /---------------------------
@@ -73,6 +74,10 @@ console.log(a + b);
 // 3. Logic: &&, ||, !
 // 4. Gán: +=,-=, *=, /=, %=, **= ( số ^), ++ --
 // 5. Nối chuỗi
+
+
+
+
 
 
 
