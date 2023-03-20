@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Style the search field */
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        /* Style the submit button */
+        form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            /* Prevent double borders */
+            cursor: pointer;
+        }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+        /* Cách để làm thẻ form có width*/
+        /* Cách 1: Tạo thẻ div ẩn ở cuối : <div style="clear: both"></div>
+        /* Cách 2: Nâng cấp cách 2
+                    form.example::after {
+                        content: "";
+                        clear: both;
+                        display: table;
+                    } */
+
+        /** Cách 3: Cho thẻ cha có thuộc tính overflow: hidden <form class="example" style="overflow: hidden;"  */
+    </style>
+</head>
+
+<body>
+    <form class="example" style="overflow: hidden;" action="action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+        <!-- <div style="clear: both"></div> -->
+    </form>
+</body>
+
+</html>
