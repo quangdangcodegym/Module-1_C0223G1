@@ -104,8 +104,10 @@ function isSquareNumber(num){
 
 console.log(`Số 15 có phải là số chính phương ko
  ${isSquareNumber(15)}`);
- */
- function isSquareNumber(num){
+
+
+ // Tính tổng các số chính phương trong mảng
+  function isSquareNumber(num){
     let haftNumber = Math.round(Math.sqrt(num));
     console.log(haftNumber);
     for(let i=1;i<=haftNumber;i++){
@@ -132,4 +134,41 @@ console.log(`Tổng các số chính phương ${sum(arr)}`);
 
 console.log(3.11%1);
 
+//Đếm số dương chia hết cho 7 trong mảng
+let x = [2,7,8,-14,21];
+let count = 0;
+for(let i=0;i<x.length;i++){
+    if(x[i]>0 && x[i]%7==0){
+        count++;
+    }
+}
+ */
 
+
+/**
+ Tên hàm: countPositiveMod7
+ Đầu vào: mảng
+ Đầu ra: count
+ */
+
+ /**
+ Tính trung bình cộng các số dương 
+ trong mảng 1 chiều các số thực
+
+ let count  = 0;
+ let total = 0;
+
+ let x = [2,7,8,-14,21];
+ for(let i=0;i<x.length;i++){
+    if(x[i]>0){
+        count++;
+        total += x[i];
+    }
+ }
+ let avg = total/count;
+
+Tên hàm: avgPositiveNumber
+Đầu vào: mảng arr
+Đầu ra: giá trị trung bình: avg
+
+*/
