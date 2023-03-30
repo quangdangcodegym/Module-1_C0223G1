@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Mobile{
+            // 
+            constructor(battery, status){
+                this.battery = battery;
+                this.message = "";
+                this.inbox = [];    // hộp thư đến
+                this.sent = [];     // đã gửi
+                this.status = status;
+            }
+            decreaseBattery(){
+                if(this.battery>0){
+                    this.battery--;
+                }else{
+                    this.status = false;
+                }
+            }
+            isEnable(){
+                
+                return this.status;
+            }
+            setStatus(status){
+                this.status = status;
+                decreaseBattery();
+            }
+            /**
+            async charge(){
+                // cập nhật lại this.battery
+                if(this.battery == 100){
+                    return;
+                }
+                console.log("Pin: " + this.battery);
+                this.battery++;
+                await delay(1000);
+                this.charge();
+
+                function delay(time) {
+                    return new Promise(resolve => setTimeout(resolve, time));
+                }
+            }
+            **/
+
+            charge(){
+                // cập nhật lại this.battery
+                if(this.battery == 100){
+                    return;
+                }
+                console.log("Pin: " + this.battery);
+                this.battery++;
+                delayWrap(this);
+
+                console.log("------------");
+                function delay(time) {
+                    return new Promise(resolve => setTimeout(resolve, time));
+                }
+                async function delayWrap(mobile){
+                    await delay(100);
+                    mobile.charge();
+                }
+            }
+
+                // Thead(A: 10p)=> thread khác
+                // let a = 5;
+                // const interval = setInterval(this.charge, 1000);
+
+                /**
+                    if(this.battery == 100){
+                        return;
+                    }
+                    this.battery++;
+                    this.charge();
+                **/
+
+
+                
+            
+            setMessage(message){
+                if(this.status){
+                    this.message = message;
+                    decreaseBattery();
+                }
+
+                
+            }
+            receiveMessageFromMobile(mobile){
+                if(this.status){
+                    this.inbox.push(mobile.message);
+                    mobile.sent.push(mobile.message);
+                    decreaseBattery();
+                }
+                
+                // trừ pin ở đây
+            }
+            // this: nokia,  mobile: iphone: sent[]
+            sendMessageToMobile(mobile){
+                if(this.status){
+                    mobile.inbox.push(this.message);
+                    this.sent.push(this.message);
+                    decreaseBattery();
+                }
+                
+                    
+            }
+            showInboxMessage(){
+                if(this.status){
+                    console.log("Danh sách tin nhắn đến:");
+                    for(let i=0;i<this.inbox.length;i++){
+                        console.log(this.inbox[i]);
+                    }
+                }
+            }
+            showSentMessage(){
+                if(this.status)
+                {
+                    console.log("Danh sách tin nhắn đã gửi:");
+                    for(let i=0;i<this.sent.length;i++){
+                        console.log(this.sent[i]);
+                    }
+                    decreaseBattery();
+                }
+            }
+        }
+        let nokia = new Mobile(1, false);
+        nokia.isEnable(true);
+
+        nokia.charge();
+        console.log("*************" + nokia.battery);
+
+        
+        let iphone  = new Mobile(100, true);
+
+        nokia.setMessage("Hello nokia đây");
+        nokia.sendMessageToMobile(iphone);
+
+        iphone.showInboxMessage();
+
+        nokia.setMessage("Tao nhắn tiếp đây");
+        nokia.sendMessageToMobile(iphone);
+
+        nokia.setMessage("Tiếp cú nữa");
+        nokia.sendMessageToMobile(iphone);
+
+        iphone.showInboxMessage();
+
+
+    </script>
+</body>
+</html>
